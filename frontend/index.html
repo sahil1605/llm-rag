@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LLM RAG UI</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>LLM RAG Demo</h1>
+      </header>
+
+      <section id="sessionInfo" class="session-info hidden"></section>
+
+      <section id="step1" class="card">
+        <h2>Step 1: Upload files</h2>
+        <div class="form-row">
+          <label for="sessionIdInput">Session ID (optional)</label>
+          <div class="row-inline">
+            <input id="sessionIdInput" type="text" placeholder="Provide to reuse a session (optional)" />
+            <button id="generateSessionId" class="secondary">Generate</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="fileInput">Select files (.pdf, .md, .txt)</label>
+          <input id="fileInput" type="file" multiple accept=".pdf,.md,.txt" />
+        </div>
+        <div class="actions">
+          <button id="uploadBtn" disabled>Upload</button>
+        </div>
+        <div id="uploadStatus" class="status"></div>
+      </section>
+
+      <section id="step2" class="card hidden">
+        <h2>Step 2: Load / Process</h2>
+        <div class="grid-2">
+          <div class="form-row">
+            <label for="chunkSize">Chunk size</label>
+            <input id="chunkSize" type="number" min="1" value="500" />
+          </div>
+          <div class="form-row">
+            <label for="chunkOverlap">Chunk overlap</label>
+            <input id="chunkOverlap" type="number" min="0" value="50" />
+          </div>
+        </div>
+        <div class="actions">
+          <button id="loadBtn">Load</button>
+          <div id="loadSpinner" class="spinner hidden" aria-label="Loading"></div>
+        </div>
+        <div id="loadStatus" class="status"></div>
+      </section>
+
+      <section id="step3" class="card hidden">
+        <h2>Step 3: Ask a question</h2>
+        <div class="ask-row">
+          <input id="questionInput" type="text" placeholder="Ask a question about your uploaded files…" />
+          <button id="askBtn">Send</button>
+        </div>
+        <div id="askStatus" class="status"></div>
+        <article id="answer" class="answer"></article>
+        <div id="sources" class="sources"></div>
+      </section>
+
+      <footer class="footer">
+        <button id="resetBtn" class="link">Reset session</button>
+      </footer>
+    </main>
+  </body>
+  </html>
+

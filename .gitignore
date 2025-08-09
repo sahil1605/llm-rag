@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+
+# macOS
+.DS_Store
+
+# Node/static
+node_modules/
+*.log
+
+# Local data & indices
+/data/
+
+# VSCode/Cursor
+.vscode/
+.idea/
+
+# Misc
+*.swp
+*.swo

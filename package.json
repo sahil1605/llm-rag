@@ -1,0 +1,10 @@
+{
+  "name": "llm-rag-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Minimal static frontend for LLM RAG demo (upload, load, ask).",
+  "scripts": {
+    "start": "python3 -m http.server 5173 --directory frontend"
+  }
+}
+

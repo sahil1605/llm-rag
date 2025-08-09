@@ -1,0 +1,9 @@
+Common issues and fixes
+
+- 405/"Method Not Allowed" on /upload: Ensure the API routes are registered before the static file mount. This repo mounts static LAST.
+- 404 favicon: Harmless, the UI doesn't include a favicon.
+- 500 on /ask with JSON serialization: Convert numpy/int64 values to native Python ints (fixed in repo).
+- "Index not found for session": You must run /load after /upload before calling /ask.
+- No extractable text: The uploaded file had no text (e.g., binary or image-only PDF). Try a text PDF, .md, or .txt.
+- Port 5173 already in use: Stop any existing servers bound to 5173 (kill the old http.server), then start FastAPI.
+- Ollama errors: Check OLLAMA_MODEL and that the Ollama daemon is running at http://localhost:11434.
